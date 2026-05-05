@@ -1,0 +1,28 @@
+Lab 6 - Conclusion
+==================
+Student: Hassan Maqsood (2022-MC-18)
+Course: MCT-454L Mobile Robotics
+
+This lab provided practical experience in implementing reactive navigation using 
+LiDAR sensor data on TurtleBot3 in a Gazebo simulation environment.
+
+The /scan topic was processed by dividing the 360-degree range array into three 
+directional regions: front, left, and right. Minimum distance filtering was applied 
+within each region to extract meaningful obstacle proximity values. Invalid readings 
+(inf and NaN) were replaced with a large default value (10.0m) to prevent control 
+errors.
+
+A simple but effective decision tree was implemented: the robot moves forward with 
+proportional wall-following when the path is clear, and stops and turns toward the 
+clearer side when an obstacle is detected ahead. This reactive approach required no 
+map or prior knowledge of the environment.
+
+Key challenges faced:
+- Tuning threshold and gain values to balance responsiveness and stability
+- Handling edge cases where both sides had equal clearance
+- Managing noisy LiDAR readings near corners and edges of obstacles
+- Selecting appropriate region sizes for front, left, and right to avoid false triggers
+
+Overall the lab reinforced how raw sensor data can be converted into real-time 
+control decisions, forming a strong foundation for more advanced navigation topics 
+such as path planning and sensor fusion.

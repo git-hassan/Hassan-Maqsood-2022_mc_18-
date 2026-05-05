@@ -1,0 +1,25 @@
+Lab 6 - Observations
+====================
+Student: Hassan Maqsood (2022-MC-18)
+Course: MCT-454L Mobile Robotics
+
+1. Robot Behavior Near Obstacles
+----------------------------------
+- The robot successfully detected obstacles using front LiDAR region
+- When front distance dropped below 0.5m threshold, the robot stopped immediately
+- The robot then turned toward the side with greater clearance (left or right)
+- Response was consistent and reliable across multiple obstacle encounters
+
+2. Oscillations or Instability
+--------------------------------
+- Minor oscillations observed during wall following due to proportional control
+- Tuning the gain (0.3) helped reduce overshoot while maintaining wall distance
+- At sharp corners the robot occasionally oscillated before stabilizing
+- Averaging over 30 front readings (15 on each side of 0°) reduced noise significantly
+
+3. Effect of Changing Threshold Values
+----------------------------------------
+- front_threshold = 0.5m: robot stopped with safe margin before obstacle
+- Reducing to 0.3m: robot got closer before stopping, riskier near fast turns
+- Increasing to 0.7m: robot stopped too early, inefficient in narrow corridors
+- side_threshold = 0.4m: adequate for corridor navigation without wall collision
